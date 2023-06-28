@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flaskkubernetesworkflow
+  labels:
+    app: flaskkubernetesworkflow
+  namespace: namespace-workflow-1687927487856
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flaskkubernetesworkflow
+  template:
+    metadata:
+      labels:
+        app: flaskkubernetesworkflow
+    spec:
+      containers:
+        - name: flaskkubernetesworkflow
+          image: acrworkflow1687927487856.azurecr.io/image-workflow-1687927487856:latest
+          ports:
+            - containerPort: 8000
